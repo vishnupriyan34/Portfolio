@@ -1,10 +1,12 @@
 🌐 Personal Portfolio — Vishnu Priyan S
+
 💻 A responsive, terminal-aesthetic developer portfolio built with HTML, CSS & JavaScript — showcasing projects, skills, internships and certifications.
 
 🔗 Live: vishnupriyan34portfolio.netlify.app
 
 👨‍💻 About This Portfolio
 This is my personal developer portfolio — built and designed entirely by me — serving as my professional hub for recruiters and collaborators. It reflects my range as a developer: backend logic, database work, and a clean UI to present it all.
+
 ✨ Features
 🖥️ Terminal-style Aesthetic — Developer-themed UI with ~/ path headers and code-like section labels
 📱 Fully Responsive — Optimized across mobile, tablet, and desktop
@@ -17,7 +19,12 @@ This is my personal developer portfolio — built and designed entirely by me �
 🔍 SEO Optimized — Meta tags, Open Graph, Twitter Card & JSON-LD structured data
 
 🛠️ Tech Stack
-TechnologyUsage🌐 HTML5Structure & semantic markup🎨 CSS3Styling, layout, animations⚡ JavaScriptInteractivity & scroll behavior🚀 NetlifyHosting & deployment🔤 Google FontsTypography
+TechnologyUsage
+🌐 HTML5Structure & semantic markup
+🎨 CSS3Styling, layout, animations
+⚡ JavaScriptInteractivity & scroll behavior
+🚀 NetlifyHosting & deployment
+🔤 Google FontsTypography
 
 📂 Project Structure
 portfolio/
