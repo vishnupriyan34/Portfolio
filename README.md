@@ -2,7 +2,7 @@
 
 💻 A responsive, terminal-aesthetic developer portfolio built with HTML, CSS & JavaScript — showcasing projects, skills, internships and certifications.
 
-🔗 Live: vishnupriyan34portfolio.netlify.app
+🔗 Live: https://vishnupriyan34portfolio.netlify.app
 
 👨‍💻 About This Portfolio
 This is my personal developer portfolio — built and designed entirely by me — serving as my professional hub for recruiters and collaborators. It reflects my range as a developer: backend logic, database work, and a clean UI to present it all.
