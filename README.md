@@ -97,7 +97,7 @@ git push origin main
 # Netlify auto-deploys on push ✅
 
 📬 Contact
-PlatformLink📧 Emailsankarvishnupriyan06@gmail.com📱 Phone+91 93601 82836💼 LinkedInlinkedin.com/in/vishnupriyan34🐙 GitHubgithub.com/vishnupriyan34
+PlatformLink📧 Email: sankarvishnupriyan06@gmail.com📱 Phone+91 93601 82836💼 LinkedInlinkedin.com/in/vishnupriyan34🐙 GitHubgithub.com/vishnupriyan34
 
 👨‍💻 Developed By
 Vishnu Priyan S
