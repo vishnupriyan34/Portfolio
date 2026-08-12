@@ -129,6 +129,7 @@ body{
 .btn .icon{ width:16px; height:16px; }
 .btn--primary{ background:var(--blue); color:#06101f; box-shadow:var(--glow-blue); }
 .btn--primary:hover{ transform:translateY(-2px); box-shadow:0 0 32px rgba(76,141,255,0.5); }
+.btn--primary:disabled{ opacity:.6; cursor:not-allowed; transform:none; box-shadow:var(--glow-blue); }
 .btn--outline{ border-color:var(--border); color:var(--text); background:transparent; }
 .btn--outline:hover{ border-color:var(--blue); color:var(--blue); transform:translateY(-2px); }
 .btn--ghost{ color:var(--text-dim); background:transparent; }
@@ -351,6 +352,8 @@ body{
 .contact-form input:focus, .contact-form textarea:focus{ border-color:var(--blue); }
 .contact-form .btn{ margin-top:20px; align-self:flex-start; }
 .form-note{ font-size:12.5px; color:var(--text-faint); margin-top:12px; }
+.form-note.is-success{ color:var(--green); }
+.form-note.is-error{ color:var(--red); }
 
 /* ---------- footer ---------- */
 .footer{
