@@ -255,4 +255,39 @@
       step();
     });
   }
+
+  /* ---------------- Contact form (EmailJS) ---------------- */
+  const contactForm = document.getElementById("contact-form");
+  const contactSubmit = document.getElementById("cf-submit");
+  const contactNote = document.getElementById("cf-note");
+  const EMAILJS_SERVICE_ID = "service_l8q3yw8";
+  const EMAILJS_TEMPLATE_ID = "template_mpr4vtd";
+  const DEFAULT_NOTE = "Sends the message straight to my inbox — no email client needed.";
+
+  if (contactForm && window.emailjs) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = "Sending…";
+      contactNote.textContent = DEFAULT_NOTE;
+      contactNote.classList.remove("is-success", "is-error");
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+        .then(() => {
+          contactSubmit.disabled = false;
+          contactSubmit.textContent = "Send Message";
+          contactNote.textContent = "Message sent — thanks for reaching out! I'll reply soon.";
+          contactNote.classList.add("is-success");
+          contactForm.reset();
+        })
+        .catch((err) => {
+          contactSubmit.disabled = false;
+          contactSubmit.textContent = "Send Message";
+          contactNote.textContent = "Something went wrong sending that — please try again or email me directly.";
+          contactNote.classList.add("is-error");
+          console.error("EmailJS error:", err);
+        });
+    });
+  }
 })();
