@@ -492,7 +492,7 @@
         </a>
       </div>
 
-      <form class="contact-form" id="contact-form" action="mailto:sankarvishnupriyan06@gmail.com" method="post" enctype="text/plain">
+      <form class="contact-form" id="contact-form" novalidate>
         <label for="cf-name">Name</label>
         <input type="text" id="cf-name" name="name" required placeholder="Your name">
 
@@ -502,8 +502,8 @@
         <label for="cf-message">Message</label>
         <textarea id="cf-message" name="message" rows="5" required placeholder="What would you like to build?"></textarea>
 
-        <button type="submit" class="btn btn--primary">Send Message</button>
-        <p class="form-note">Opens your email client with this message pre-filled. Want a no-reload AJAX form instead? See the README for a Formspree/EmailJS swap.</p>
+        <button type="submit" class="btn btn--primary" id="cf-submit">Send Message</button>
+        <p class="form-note" id="cf-note">Sends the message straight to my inbox — no email client needed.</p>
       </form>
     </div>
   </section>
@@ -529,6 +529,12 @@
 <button id="scroll-top" class="scroll-top" aria-label="Scroll back to top">
   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("NIy-al2Bxj9m6IqGH");
+</script>
 
 <script src="js/main.js"></script>
 </body>
