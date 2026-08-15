@@ -256,6 +256,49 @@
     });
   }
 
+  /* ---------------- Custom globe cursor + click flash ---------------- */
+  const supportsFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (supportsFineHover) {
+    const eduCursor = document.createElement("div");
+    eduCursor.className = "edu-cursor";
+    eduCursor.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18"/>
+      <path d="M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/>
+    </svg>`;
+    document.body.appendChild(eduCursor);
+
+    window.addEventListener("mousemove", (e) => {
+      eduCursor.style.left = `${e.clientX}px`;
+      eduCursor.style.top = `${e.clientY}px`;
+    });
+
+    const flashColors = ["#ff5e5e", "#ffd166", "#06d6a0", "#118ab2", "#c77dff", "#f72585"];
+
+    function spawnCursorFlash(x, y) {
+      for (let i = 0; i < 10; i++) {
+        const dot = document.createElement("span");
+        dot.className = "cursor-flash";
+        const angle = (Math.PI * 2 * i) / 10;
+        const distance = 30 + Math.random() * 20;
+        dot.style.left = `${x}px`;
+        dot.style.top = `${y}px`;
+        dot.style.background = flashColors[i % flashColors.length];
+        dot.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+        dot.style.setProperty("--dy", `${Math.sin(angle) * distance}px`);
+        document.body.appendChild(dot);
+        setTimeout(() => dot.remove(), 650);
+      }
+    }
+
+    window.addEventListener("mousedown", (e) => {
+      eduCursor.classList.add("clicking");
+      spawnCursorFlash(e.clientX, e.clientY);
+    });
+    window.addEventListener("mouseup", () => eduCursor.classList.remove("clicking"));
+  }
+
   /* ---------------- Contact form (EmailJS) ---------------- */
   const contactForm = document.getElementById("contact-form");
   const contactSubmit = document.getElementById("cf-submit");
