@@ -256,22 +256,42 @@
     });
   }
 
-  /* ---------------- Custom globe cursor + click flash ---------------- */
+  /* ---------------- Targeting reticle cursor (green idle / red lock) ---------------- */
   const supportsFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   if (supportsFineHover) {
-    const eduCursor = document.createElement("div");
-    eduCursor.className = "edu-cursor";
-    eduCursor.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-      <circle cx="12" cy="12" r="9"/>
-      <path d="M3 12h18"/>
-      <path d="M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/>
-    </svg>`;
-    document.body.appendChild(eduCursor);
+    const reticle = document.createElement("div");
+    reticle.className = "reticle-cursor";
+    reticle.innerHTML = `
+      <span class="reticle-label">AIM: OPTION LOCK</span>
+      <svg viewBox="0 0 100 100">
+        <circle class="reticle-ring" cx="50" cy="50" r="30"/>
+        <circle class="reticle-dot" cx="50" cy="50" r="3"/>
+        <line class="reticle-line" x1="50" y1="2"  x2="50" y2="18"/>
+        <line class="reticle-line" x1="50" y1="82" x2="50" y2="98"/>
+        <line class="reticle-line" x1="2"  y1="50" x2="18" y2="50"/>
+        <line class="reticle-line" x1="82" y1="50" x2="98" y2="50"/>
+        <path class="reticle-corner" d="M8,26 L8,8 L26,8"/>
+        <path class="reticle-corner" d="M74,8 L92,8 L92,26"/>
+        <path class="reticle-corner" d="M92,74 L92,92 L74,92"/>
+        <path class="reticle-corner" d="M26,92 L8,92 L8,74"/>
+      </svg>`;
+    document.body.appendChild(reticle);
 
     window.addEventListener("mousemove", (e) => {
-      eduCursor.style.left = `${e.clientX}px`;
-      eduCursor.style.top = `${e.clientY}px`;
+      reticle.style.left = `${e.clientX}px`;
+      reticle.style.top = `${e.clientY}px`;
+    });
+
+    /* Lock onto anything clickable */
+    const LOCK_SELECTOR = "a, button, input, textarea, select, label, .btn, [role='button'], .nav__link, .tag";
+    document.addEventListener("mouseover", (e) => {
+      if (e.target.closest(LOCK_SELECTOR)) reticle.classList.add("is-locked");
+    });
+    document.addEventListener("mouseout", (e) => {
+      if (e.target.closest(LOCK_SELECTOR) && !e.relatedTarget?.closest(LOCK_SELECTOR)) {
+        reticle.classList.remove("is-locked");
+      }
     });
 
     const flashColors = ["#ff5e5e", "#ffd166", "#06d6a0", "#118ab2", "#c77dff", "#f72585"];
@@ -293,10 +313,10 @@
     }
 
     window.addEventListener("mousedown", (e) => {
-      eduCursor.classList.add("clicking");
+      reticle.classList.add("clicking");
       spawnCursorFlash(e.clientX, e.clientY);
     });
-    window.addEventListener("mouseup", () => eduCursor.classList.remove("clicking"));
+    window.addEventListener("mouseup", () => reticle.classList.remove("clicking"));
   }
 
   /* ---------------- Contact form (EmailJS) ---------------- */
