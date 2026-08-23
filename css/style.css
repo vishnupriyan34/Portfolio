@@ -106,7 +106,8 @@ body{
 .section--alt .skills__grid,
 .section--alt .soft-skills,
 .section--alt .timeline,
-.section--alt .cert__grid{ padding-left:32px; padding-right:32px; }
+.section--alt .cert__grid,
+.section--alt .resume__panel{ padding-left:32px; padding-right:32px; }
 
 .section__head{ margin-bottom:48px; }
 .section__head h2{ font-size:clamp(28px,4vw,38px); margin-top:10px; }
@@ -332,6 +333,30 @@ body{
 .cert-card__org{ font-family:var(--font-mono); font-size:12px; color:var(--green); margin-bottom:10px; }
 .cert-card p:not(.cert-card__org){ font-size:13.5px; color:var(--text-dim); }
 
+/* ---------- resume ---------- */
+.resume__panel{
+  display:grid; grid-template-columns:1.3fr 1fr; gap:48px;
+  background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-l);
+  padding:42px; align-items:center;
+}
+.resume__copy .lede{ font-size:16.5px; color:var(--text-dim); margin-bottom:20px; }
+.resume__contains{ display:flex; flex-direction:column; gap:10px; }
+.resume__contains li{
+  display:flex; align-items:center; gap:10px;
+  font-size:14px; color:var(--text);
+}
+.resume__dot{ width:6px; height:6px; border-radius:50%; background:var(--blue); flex:0 0 auto; }
+.resume__actions{ display:flex; flex-direction:column; align-items:flex-start; gap:14px; }
+.resume__btn{ width:100%; justify-content:center; }
+.resume__btn .icon--sm{ width:13px; height:13px; opacity:.75; }
+.resume__filenote{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); }
+
+@media (max-width: 760px){
+  .resume__panel{ grid-template-columns:1fr; padding:28px; gap:28px; }
+  .resume__actions{ width:100%; }
+  .resume__btn{ width:100%; }
+}
+
 /* ---------- contact ---------- */
 .contact__grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; }
 .contact__info .lede{ font-size:17px; color:var(--text-dim); margin-bottom:30px; }
@@ -470,6 +495,9 @@ body{
   .strengths{ grid-template-columns:1fr; }
   .skills__grid{ grid-template-columns:repeat(2,1fr); }
   .cert__grid{ grid-template-columns:repeat(2,1fr); }
+  .resume__panel{ grid-template-columns:1fr; gap:32px; }
+  .resume__actions{ align-items:stretch; }
+  .resume__btn{ width:auto; }
 }
 
 @media (max-width: 760px){
