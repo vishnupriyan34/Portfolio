@@ -38,26 +38,28 @@
     const barFill = intro.querySelector(".intro-bar__fill");
     const STEP = 400;
     const CAP_STEP = 150;
+    const NAME_HOLD = 4500;
 
     lines.forEach((line, i) => {
       setTimeout(() => line.classList.add("is-shown"), STEP * (i + 1));
     });
 
     setTimeout(() => { barFill.style.width = "100%"; }, STEP * lines.length);
-    setTimeout(() => { nameEl.classList.add("is-shown"); nameGlowEl.classList.add("is-active"); }, STEP * lines.length + 300);
-    setTimeout(() => subtitleEl.classList.add("is-shown"), STEP * lines.length + 700);
 
-    const captionsStart = STEP * lines.length + 1000;
+    const nameStart = STEP * lines.length + 300;
+    setTimeout(() => { nameEl.classList.add("is-shown"); nameGlowEl.classList.add("is-active"); }, nameStart);
+    setTimeout(() => subtitleEl.classList.add("is-shown"), nameStart + 900);
+
+    const captionsStart = nameStart + 1300;
     captionEls.forEach((cap, i) => {
       setTimeout(() => cap.classList.add("is-shown"), captionsStart + CAP_STEP * i);
     });
-    const captionsEnd = captionsStart + CAP_STEP * captionEls.length;
 
     setTimeout(() => {
       intro.classList.add("is-hidden");
       document.body.style.overflow = "";
       setTimeout(() => intro.remove(), 800);
-    }, captionsEnd + 900);
+    }, nameStart + NAME_HOLD);
   })();
 
   /* ---------------- Theme toggle ---------------- */
