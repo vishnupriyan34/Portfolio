@@ -11,6 +11,55 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------------- Intro boot sequence ---------------- */
+  (function initIntro() {
+    const intro = document.getElementById("intro-loader");
+    if (!intro) return;
+
+    const SEEN_KEY = "vp-portfolio-intro-seen";
+    if (sessionStorage.getItem(SEEN_KEY)) {
+      intro.remove();
+      return;
+    }
+    sessionStorage.setItem(SEEN_KEY, "1");
+
+    if (reduceMotion) {
+      intro.remove();
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const lines = Array.from(intro.querySelectorAll("[data-line]"));
+    const nameEl = intro.querySelector(".intro-name");
+    const nameGlowEl = intro.querySelector(".intro-name-glow");
+    const subtitleEl = intro.querySelector(".intro-subtitle");
+    const captionEls = Array.from(intro.querySelectorAll("[data-cap]"));
+    const barFill = intro.querySelector(".intro-bar__fill");
+    const STEP = 400;
+    const CAP_STEP = 150;
+
+    lines.forEach((line, i) => {
+      setTimeout(() => line.classList.add("is-shown"), STEP * (i + 1));
+    });
+
+    setTimeout(() => { barFill.style.width = "100%"; }, STEP * lines.length);
+    setTimeout(() => { nameEl.classList.add("is-shown"); nameGlowEl.classList.add("is-active"); }, STEP * lines.length + 300);
+    setTimeout(() => subtitleEl.classList.add("is-shown"), STEP * lines.length + 700);
+
+    const captionsStart = STEP * lines.length + 1000;
+    captionEls.forEach((cap, i) => {
+      setTimeout(() => cap.classList.add("is-shown"), captionsStart + CAP_STEP * i);
+    });
+    const captionsEnd = captionsStart + CAP_STEP * captionEls.length;
+
+    setTimeout(() => {
+      intro.classList.add("is-hidden");
+      document.body.style.overflow = "";
+      setTimeout(() => intro.remove(), 800);
+    }, captionsEnd + 900);
+  })();
+
   /* ---------------- Theme toggle ---------------- */
   const themeToggle = document.getElementById("theme-toggle");
   const THEME_KEY = "vp-portfolio-theme";
