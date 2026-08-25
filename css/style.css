@@ -395,6 +395,16 @@ body{
 .footer__social .icon{ width:19px; height:19px; color:var(--text-dim); transition:color .2s ease; }
 .footer__social a:hover .icon{ color:var(--blue); }
 
+.footer__credit{
+  font-family:var(--font-mono); font-size:12.5px; letter-spacing:.02em;
+  color:var(--text-faint); margin-top:2px;
+}
+.footer__credit-name{
+  font-weight:700; font-family:var(--font-display);
+  background:linear-gradient(90deg, var(--blue), var(--violet), var(--amber), var(--green));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
+}
+
 .scroll-top{
   position:fixed; right:24px; bottom:96px; z-index:60;
   width:44px; height:44px; border-radius:50%; border:1px solid var(--border);
