@@ -2,8 +2,7 @@
 
 > 💻 A responsive, terminal-aesthetic developer portfolio built with **HTML, CSS & JavaScript**, showcasing my projects, technical skills, experience, education, and certifications.
 
-🔗 **Live Website:** vishnupriyan34portfolio-site.vercel.app
-
+🔗 **Live Website:** [vishnupriyan34portfolio-site.vercel.app](https://vishnupriyan34portfolio-site.vercel.app/)
 ---
 
 ## 📌 About
