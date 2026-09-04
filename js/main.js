@@ -189,30 +189,7 @@
     });
   }
 
-  /* ---------------- Animated skill meters ---------------- */
-  const meters = document.querySelectorAll(".meter");
-  if (meters.length && "IntersectionObserver" in window) {
-    const meterObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const level = entry.target.getAttribute("data-level") || "0";
-            entry.target.style.setProperty("--w", `${level}%`);
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-    meters.forEach((m) => meterObserver.observe(m));
-  } else {
-    meters.forEach((m) => {
-      m.style.setProperty("--w", `${m.getAttribute("data-level") || 0}%`);
-      m.classList.add("is-visible");
-    });
-  }
-
+  
   /* ---------------- Scroll-triggered section reveal ---------------- */
   if (!reduceMotion && "IntersectionObserver" in window) {
     const revealGroups = [
