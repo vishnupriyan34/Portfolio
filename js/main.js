@@ -191,40 +191,47 @@
 
   
   /* ---------------- Scroll-triggered section reveal ---------------- */
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    const revealGroups = [
-      { selector: "#about .about__photo-wrap, #about .about__copy", stagger: 100 },
-      { selector: "#skills .skill-card, #skills .soft-skills", stagger: 90 },
-      { selector: "#projects .code-card", stagger: 100 },
-      { selector: "#experience .timeline__item", stagger: 90 },
-      { selector: "#education .edu-card", stagger: 90 },
-      { selector: "#certifications .cert-card", stagger: 80 },
-      { selector: "#resume .resume__panel", stagger: 0 },
-      { selector: "#contact .contact__info, #contact .contact-form", stagger: 100 },
-    ];
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const revealGroups = [
+    { selector: "#about .about__photo-wrap, #about .about__copy", stagger: 30 },
+    { selector: "#skills .skill-card, #skills .soft-skills", stagger: 30 },
+    { selector: "#projects .code-card", stagger: 30 },
+    { selector: "#experience .timeline__item", stagger: 30 },
+    { selector: "#education .edu-card", stagger: 30 },
+    { selector: "#certifications .cert-card", stagger: 30 },
+    { selector: "#resume .resume__panel", stagger: 0 },
+    { selector: "#contact .contact__info, #contact .contact-form", stagger: 30 },
+  ];
 
-    const revealObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-    );
-
-    revealGroups.forEach((group) => {
-      const els = document.querySelectorAll(group.selector);
-      els.forEach((el, i) => {
-        el.classList.add("reveal-init");
-        if (group.stagger) el.style.transitionDelay = `${i * group.stagger}ms`;
-        revealObserver.observe(el);
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          obs.unobserve(entry.target);
+        }
       });
-    });
-  }
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -3% 0px"
+    }
+  );
 
+  revealGroups.forEach((group) => {
+    const els = document.querySelectorAll(group.selector);
+
+    els.forEach((el, i) => {
+      el.classList.add("reveal-init");
+
+      if (group.stagger) {
+        el.style.transitionDelay = `${i * group.stagger}ms`;
+      }
+
+      revealObserver.observe(el);
+    });
+  });
+}
   /* ---------------- Terminal typing effect ---------------- */
   const terminalBody = document.getElementById("terminal-body");
 
