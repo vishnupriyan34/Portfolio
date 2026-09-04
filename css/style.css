@@ -877,5 +877,248 @@ h1:hover, h2:hover, h3:hover, h4:hover{
   .intro-rays{ inset:-100px -140px; }
   .intro-name-wrap{ padding:18px 30px; }
   .intro-name-wrap::before,
-  .intro-name-wrap::after{ width:22px; height:22px; }
+  .intro-name-wrap::after{ width:22px; height:22px;a }
+}
+
+/* =========================================
+   NEW SKILLS & TOOLS SECTION
+   ========================================= */
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Main Skill Card */
+
+.skill-card {
+  position: relative;
+  padding: 26px;
+
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+
+  box-shadow:
+    var(--shadow),
+    0 0 30px rgba(0, 170, 255, 0.12);
+}
+
+
+/* Card Header */
+
+.skill-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-card__header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+
+/* Header Icon */
+
+.skill-card__icon {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  font-size: 1.25rem;
+
+  color: var(--blue);
+
+  background: var(--panel-2);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: var(--glow-blue);
+}
+
+
+/* Individual Skill */
+
+.skill-item {
+  padding: 1rem 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+/* Skill Name + Badge */
+
+.skill-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.8rem;
+
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+/* Proficiency Badge */
+
+.skill-badge {
+  font-family: var(--font-mono);
+
+  font-size: 0.68rem;
+  font-weight: 500;
+
+  padding: 0.35rem 0.65rem;
+
+  border-radius: 999px;
+
+  color: var(--blue);
+
+  background: rgba(0, 150, 255, 0.08);
+
+  border: 1px solid rgba(0, 180, 255, 0.25);
+
+  white-space: nowrap;
+}
+
+
+/* Primary Badge */
+
+.skill-badge--primary {
+  color: var(--blue);
+
+  background: rgba(0, 200, 255, 0.14);
+
+  border-color: rgba(0, 200, 255, 0.45);
+
+  box-shadow: var(--glow-blue);
+}
+
+
+/* Skill Technology Tags */
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+}
+
+.skill-tags span {
+  font-family: var(--font-mono);
+
+  font-size: 0.7rem;
+
+  padding: 0.4rem 0.65rem;
+
+  border-radius: 6px;
+
+  color: var(--text-dim);
+
+  background: var(--panel-2);
+
+  border: 1px solid var(--border);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.skill-tags span:hover {
+  transform: translateY(-2px);
+
+  color: var(--blue);
+
+  border-color: var(--blue);
+
+  background: rgba(0, 150, 255, 0.08);
+}
+
+
+/* Soft Skills Section */
+
+.soft-skills {
+  margin-top: 28px;
+
+  padding: 26px;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-m);
+
+  box-shadow: var(--shadow);
+}
+
+.soft-skills .skill-card__title {
+  margin-bottom: 1.2rem;
+
+  font-size: 1.05rem;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 900px) {
+
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .skill-card {
+    padding: 20px;
+  }
+
+  .skill-item__top {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 0.6rem;
+  }
+
+  .skill-card__header h3 {
+    font-size: 1rem;
+  }
+
 }
