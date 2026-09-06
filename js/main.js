@@ -607,4 +607,176 @@ if (!reduceMotion && "IntersectionObserver" in window) {
         });
     });
   }
+     /* =====================================================
+     CODE QUEST — LIVE LEETCODE STATISTICS
+  ===================================================== */
+
+  const codeQuestSection = document.getElementById("code-quest");
+
+  const totalEl = document.getElementById("leetcode-total");
+  const easyEl = document.getElementById("leetcode-easy");
+  const mediumEl = document.getElementById("leetcode-medium");
+  const hardEl = document.getElementById("leetcode-hard");
+  const updatedEl = document.getElementById("leetcode-updated");
+
+  const statCards = document.querySelectorAll(".quest-stat");
+
+  async function fetchLeetCodeStats() {
+
+    if (!codeQuestSection) return;
+
+    try {
+
+      statCards.forEach((card) => {
+        card.classList.add("is-loading");
+      });
+
+      const response = await fetch("/api/leetcode");
+
+      if (!response.ok) {
+        throw new Error("Unable to fetch coding statistics");
+      }
+
+      const data = await response.json();
+
+      animateCounter(totalEl, data.totalSolved);
+      animateCounter(easyEl, data.easySolved);
+      animateCounter(mediumEl, data.mediumSolved);
+      animateCounter(hardEl, data.hardSolved);
+
+      if (updatedEl) {
+        updatedEl.textContent =
+          "Live data synced successfully • " +
+          new Date().toLocaleTimeString();
+      }
+
+    } catch (error) {
+
+      console.error("Code Quest error:", error);
+
+      if (updatedEl) {
+        updatedEl.textContent =
+          "Unable to sync live data. Please try again later.";
+      }
+
+    } finally {
+
+      statCards.forEach((card) => {
+        card.classList.remove("is-loading");
+      });
+
+    }
+
+  }
+
+
+  /* =====================================================
+     ANIMATED NUMBER COUNTER
+  ===================================================== */
+
+  function animateCounter(element, target) {
+
+    if (!element || target === undefined || target === null) {
+      return;
+    }
+
+    const duration = 1000;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      const value = Math.floor(target * progress);
+
+      element.textContent = value;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target;
+      }
+
+    }
+
+    requestAnimationFrame(updateCounter);
+
+  }
+
+
+  /* =====================================================
+     FETCH DATA WHEN SECTION BECOMES VISIBLE
+  ===================================================== */
+
+  if (codeQuestSection && "IntersectionObserver" in window) {
+
+    const leetCodeObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            fetchLeetCodeStats();
+
+            observer.disconnect();
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.2
+      }
+    );
+
+    leetCodeObserver.observe(codeQuestSection);
+
+  } else {
+
+    fetchLeetCodeStats();
+
+  }
+
+
+  /* =====================================================
+     CODE QUEST — SCROLL ANIMATION
+  ===================================================== */
+
+  const codeQuest = document.getElementById("code-quest");
+
+  if (codeQuest && "IntersectionObserver" in window) {
+
+    const codeQuestObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            codeQuest.classList.add("is-visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    codeQuestObserver.observe(codeQuest);
+
+  } else if (codeQuest) {
+
+    codeQuest.classList.add("is-visible");
+
+  }
 })();
