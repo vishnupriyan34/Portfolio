@@ -1122,3 +1122,557 @@ h1:hover, h2:hover, h3:hover, h4:hover{
   }
 
 }
+
+/* =====================================================
+   CODE QUEST
+===================================================== */
+
+.code-quest {
+  position: relative;
+  overflow: hidden;
+}
+
+.codequest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 28px;
+  margin-top: 45px;
+}
+
+.codequest-profile,
+.quest-stat {
+  position: relative;
+  background: rgba(10, 18, 35, 0.65);
+  border: 1px solid rgba(79, 209, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 18px;
+}
+
+.codequest-profile {
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.codequest-profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(0, 174, 255, 0.15),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.codequest-live {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+
+  color: #7dffb2;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+
+  background: #2cff7f;
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px #2cff7f;
+
+  animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
+}
+
+.codequest-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 70px;
+  height: 70px;
+
+  margin: 30px 0 20px;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.7rem;
+  font-family: var(--font-mono);
+
+  color: #42d7ff;
+
+  border: 1px solid rgba(66, 215, 255, 0.4);
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 20px rgba(66, 215, 255, 0.12),
+    inset 0 0 18px rgba(66, 215, 255, 0.05);
+}
+
+.codequest-profile h3 {
+  position: relative;
+  z-index: 1;
+
+  font-size: 1.55rem;
+  margin-bottom: 14px;
+}
+
+.codequest-profile p {
+  position: relative;
+  z-index: 1;
+
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.codequest-btn {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 25px;
+}
+
+.codequest-update {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+
+  opacity: 0.65;
+}
+
+/* Statistics */
+
+.codequest-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.quest-stat {
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 190px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.quest-stat:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(79, 209, 255, 0.6);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(59, 180, 255, 0.08);
+}
+
+.quest-stat::before {
+  content: "";
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  top: -70px;
+  right: -70px;
+
+  opacity: 0.18;
+}
+
+.quest-stat.total::before {
+  background: #28c7fa;
+}
+
+.quest-stat.easy::before {
+  background: #2cff7f;
+}
+
+.quest-stat.medium::before {
+  background: #ffd166;
+}
+
+.quest-stat.hard::before {
+  background: #ff5e5e;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+
+  font-size: 0.7rem;
+
+  letter-spacing: 2px;
+
+  opacity: 0.65;
+}
+
+.quest-stat strong {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+
+  margin: 12px 0 6px;
+
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.quest-stat.total strong {
+  color: #42d7ff;
+}
+
+.quest-stat.easy strong {
+  color: #38e68b;
+}
+
+.quest-stat.medium strong {
+  color: #ffd166;
+}
+
+.quest-stat.hard strong {
+  color: #ff6b6b;
+}
+
+.stat-sub {
+  font-size: 0.8rem;
+  opacity: 0.55;
+}
+
+/* Footer Message */
+
+.codequest-footer {
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(79, 209, 255, 0.12);
+
+  background: rgba(9, 15, 28, 0.45);
+
+  border-radius: 12px;
+
+  font-family: var(--font-mono);
+}
+
+.terminal-symbol {
+  color: #42d7ff;
+
+  font-weight: bold;
+}
+
+.codequest-footer p {
+  margin: 0;
+
+  font-size: 0.82rem;
+
+  opacity: 0.75;
+}
+
+/* Loading Animation */
+
+.quest-stat.is-loading strong {
+  animation: statLoading 1s infinite alternate;
+}
+
+@keyframes statLoading {
+  from {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .codequest-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 560px) {
+
+  .codequest-profile {
+    padding: 28px;
+  }
+
+  .codequest-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-stat {
+    min-height: 150px;
+  }
+
+  .codequest-footer {
+    align-items: flex-start;
+  }
+
+}
+
+/* =====================================================
+   CODE QUEST — PREMIUM ANIMATIONS
+===================================================== */
+
+/* Initial state before section enters viewport */
+
+.code-quest .section-heading {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.codequest-profile {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.quest-stat {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(.2,.8,.2,1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Activated when CODE QUEST becomes visible */
+
+.code-quest.is-visible .section-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.code-quest.is-visible .codequest-profile {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.code-quest.is-visible .quest-stat {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* Staggered statistics animation */
+
+.code-quest.is-visible .quest-stat:nth-child(1) {
+  transition-delay: 0.15s;
+}
+
+.code-quest.is-visible .quest-stat:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+.code-quest.is-visible .quest-stat:nth-child(3) {
+  transition-delay: 0.35s;
+}
+
+.code-quest.is-visible .quest-stat:nth-child(4) {
+  transition-delay: 0.45s;
+}
+
+
+/* Animated floating glow behind profile */
+
+.codequest-profile::after {
+  content: "";
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -80px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(66, 215, 255, 0.12);
+
+  filter: blur(35px);
+
+  pointer-events: none;
+
+  animation: questGlowFloat 5s ease-in-out infinite;
+}
+
+@keyframes questGlowFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-30px, -40px) scale(1.25);
+  }
+
+}
+
+
+/* Animated border glow */
+
+.codequest-profile {
+  animation: questBorderPulse 4s ease-in-out infinite;
+}
+
+@keyframes questBorderPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(66, 215, 255, 0),
+      inset 0 0 20px rgba(66, 215, 255, 0.03);
+  }
+
+  50% {
+    box-shadow:
+      0 0 28px rgba(66, 215, 255, 0.12),
+      inset 0 0 30px rgba(66, 215, 255, 0.06);
+  }
+
+}
+
+
+/* Code icon floating animation */
+
+.codequest-icon {
+  animation: codeIconFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes codeIconFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+
+}
+
+
+/* Stat card number glow */
+
+.quest-stat strong {
+  text-shadow: 0 0 18px currentColor;
+}
+
+
+/* Footer terminal line reveal */
+
+.codequest-footer {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.code-quest.is-visible .codequest-footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.55s;
+}
+
+
+/* Terminal symbol blink */
+
+.terminal-symbol {
+  animation: terminalBlink 1.2s steps(2, start) infinite;
+}
+
+@keyframes terminalBlink {
+
+  50% {
+    opacity: 0.25;
+  }
+
+}
+
+
+/* Disable heavy animations for users preferring reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .code-quest .section-heading,
+  .codequest-profile,
+  .quest-stat,
+  .codequest-footer {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .codequest-profile,
+  .codequest-profile::after,
+  .codequest-icon,
+  .terminal-symbol,
+  .live-dot {
+    animation: none;
+  }
+
+}
