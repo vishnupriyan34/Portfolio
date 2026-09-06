@@ -1676,3 +1676,62 @@ h1:hover, h2:hover, h3:hover, h4:hover{
   }
 
 }
+
+/* =====================================================
+   LEETCODE VISUAL IDENTITY
+===================================================== */
+
+.leetcode-icon {
+  position: relative;
+  border-color: rgba(255, 161, 22, 0.55);
+  background: rgba(255, 161, 22, 0.06);
+}
+
+.leetcode-symbol {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffa116;
+  text-shadow: 0 0 18px rgba(255, 161, 22, 0.7);
+}
+
+.leetcode-badge {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffa116;
+}
+
+.leetcode-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffa116;
+  box-shadow: 0 0 10px #ffa116;
+  animation: leetcodePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes leetcodePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.65);
+    opacity: 0.5;
+  }
+}
+
+.codequest-profile h3 span {
+  color: #ffa116;
+  text-shadow: 0 0 18px rgba(255, 161, 22, 0.35);
+}
