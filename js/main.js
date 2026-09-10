@@ -779,4 +779,47 @@ if (!reduceMotion && "IntersectionObserver" in window) {
     codeQuest.classList.add("is-visible");
 
   }
+     /* =====================================================
+     SECTION-WISE FUTURISTIC BACKGROUND CONTROLLER
+     ===================================================== */
+
+  const sectionBackgrounds = document.querySelectorAll("main section[id]");
+
+  if (sectionBackgrounds.length && "IntersectionObserver" in window) {
+
+    const backgroundObserver = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            document.body.setAttribute(
+              "data-active-section",
+              entry.target.id
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "-10% 0px -35% 0px"
+      }
+    );
+
+    sectionBackgrounds.forEach((section) => {
+      backgroundObserver.observe(section);
+    });
+
+  } else if (sectionBackgrounds.length) {
+
+    document.body.setAttribute(
+      "data-active-section",
+      sectionBackgrounds[0].id
+    );
+
+  }
 })();
