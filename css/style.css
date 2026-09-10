@@ -4268,3 +4268,239 @@ main > section[id]:not(#contact)::before {
   }
 
 }
+/* =========================================================
+   FINAL BACKGROUND VISIBILITY FIX
+   Make section effects clearly visible
+   ========================================================= */
+
+/* Remove heavy black overlays from futuristic worlds */
+.about-bg,
+.skills-bg,
+.projects-bg,
+.codequest-bg,
+.experience-bg,
+.education-bg,
+.certifications-bg,
+.resume-bg,
+.contact-bg {
+  background-color: transparent !important;
+}
+
+/* Keep the actual visual effects visible */
+.about-bg {
+  opacity: 1;
+}
+
+.skills-bg {
+  opacity: 1;
+}
+
+.projects-bg {
+  opacity: 1;
+}
+
+.codequest-bg {
+  opacity: 1;
+}
+
+.experience-bg {
+  opacity: 1;
+}
+
+.education-bg {
+  opacity: 1;
+}
+
+.certifications-bg {
+  opacity: 1;
+}
+
+.resume-bg {
+  opacity: 1;
+}
+
+.contact-bg {
+  opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   REMOVE HEAVY DARK GRADIENTS
+   --------------------------------------------------------- */
+
+.about-bg {
+  background:
+    radial-gradient(
+      circle at 20% 35%,
+      rgba(51, 225, 255, .10),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 78% 65%,
+      rgba(179, 146, 240, .09),
+      transparent 38%
+    ) !important;
+}
+
+.skills-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .11),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(179, 146, 240, .07),
+      transparent 34%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   PROJECTS — KEEP CYBERPUNK EFFECT STRONG
+   --------------------------------------------------------- */
+
+.projects-bg {
+  background:
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(0, 205, 255, .18),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(255, 70, 190, .12),
+      transparent 32%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   CODE QUEST
+   --------------------------------------------------------- */
+
+.codequest-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .11),
+      transparent 42%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   EXPERIENCE
+   --------------------------------------------------------- */
+
+.experience-bg {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(76, 141, 255, .10),
+      transparent 45%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   EDUCATION
+   --------------------------------------------------------- */
+
+.education-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(76, 141, 255, .11),
+      transparent 45%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   CERTIFICATIONS
+   --------------------------------------------------------- */
+
+.certifications-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(179, 146, 240, .10),
+      transparent 44%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESUME
+   --------------------------------------------------------- */
+
+.resume-bg {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 255, 220, .10),
+      transparent 50%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT
+   --------------------------------------------------------- */
+
+.contact-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .12),
+      transparent 48%
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   MAKE PARTICLES / ORBITS / SPARKS MORE VISIBLE
+   --------------------------------------------------------- */
+
+.about-particle,
+.skills-particle,
+.project-particle,
+.code-particle,
+.experience-particle,
+.cert-spark,
+.resume-particle {
+  opacity: .85;
+}
+
+
+/* ---------------------------------------------------------
+   IMPORTANT:
+   Keep section content readable without black overlays
+   --------------------------------------------------------- */
+
+main > section[id] {
+  background: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .about-bg,
+  .skills-bg,
+  .projects-bg,
+  .codequest-bg,
+  .experience-bg,
+  .education-bg,
+  .certifications-bg,
+  .resume-bg,
+  .contact-bg {
+    opacity: 1 !important;
+  }
+
+}
