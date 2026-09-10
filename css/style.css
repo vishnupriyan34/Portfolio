@@ -4803,3 +4803,867 @@ main > section[id] a {
   }
 
 }
+/* =========================================================
+   UNIQUE SECTION SEPARATORS
+   Every section gets its own futuristic transition
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   COMMON BASE
+   --------------------------------------------------------- */
+
+main > section[id] {
+  position: relative;
+}
+
+main > section[id]:not(#contact)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 100%;
+  height: 90px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+  z-index: 6;
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+
+/* =========================================================
+   1. HOME → ABOUT
+   CYAN NEURAL PULSE
+   ========================================================= */
+
+#home::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 100%;
+  height: 80px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+  z-index: 8;
+
+  background:
+    radial-gradient(
+      circle at center bottom,
+      rgba(50, 220, 255, .85) 0 3px,
+      rgba(50, 220, 255, .25) 4px,
+      transparent 15px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 20%,
+      rgba(50, 220, 255, .05) 35%,
+      rgba(50, 220, 255, .75) 50%,
+      rgba(50, 220, 255, .05) 65%,
+      transparent 80%
+    );
+
+  filter:
+    drop-shadow(0 0 10px rgba(50, 220, 255, .55));
+
+  animation: homeSeparatorPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes homeSeparatorPulse {
+
+  0%, 100% {
+    opacity: .35;
+    transform: translateX(-50%) scaleX(.75);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+}
+
+
+/* =========================================================
+   2. ABOUT → SKILLS
+   BLUE + PURPLE AURORA WAVE
+   ========================================================= */
+
+#about::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -8px;
+
+  width: 75%;
+  height: 70px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(90, 150, 255, .32),
+      rgba(150, 80, 255, .16) 35%,
+      transparent 70%
+    );
+
+  filter: blur(7px);
+
+  box-shadow:
+    0 -4px 25px rgba(80, 150, 255, .20),
+    0 -2px 35px rgba(160, 80, 255, .12);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: aboutSeparatorWave 5s ease-in-out infinite;
+}
+
+@keyframes aboutSeparatorWave {
+
+  0%, 100% {
+    transform: translateX(-50%) scaleX(.72);
+    opacity: .35;
+  }
+
+  50% {
+    transform: translateX(-50%) scaleX(1.08);
+    opacity: .85;
+  }
+
+}
+
+
+/* =========================================================
+   3. SKILLS → PROJECTS
+   AI ORBIT SEPARATOR
+   ========================================================= */
+
+#skills::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -12px;
+
+  width: 105px;
+  height: 105px;
+
+  transform: translateX(-50%);
+
+  border:
+    1px solid rgba(50, 200, 255, .45);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 12px rgba(50, 200, 255, .25),
+    0 0 35px rgba(50, 200, 255, .12),
+    inset 0 0 20px rgba(50, 200, 255, .08);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: skillsSeparatorOrbit 8s linear infinite;
+}
+
+#skills::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 20px;
+
+  width: 10px;
+  height: 10px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(70, 220, 255, 1);
+
+  box-shadow:
+    0 0 8px rgba(70, 220, 255, .9),
+    0 0 25px rgba(70, 220, 255, .7),
+    0 0 50px rgba(70, 220, 255, .3);
+
+  pointer-events: none;
+  z-index: 9;
+
+  animation: skillsCorePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes skillsSeparatorOrbit {
+
+  from {
+    transform:
+      translateX(-50%)
+      rotate(0deg)
+      scaleX(1.7);
+  }
+
+  to {
+    transform:
+      translateX(-50%)
+      rotate(360deg)
+      scaleX(1.7);
+  }
+
+}
+
+@keyframes skillsCorePulse {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(.7);
+    opacity: .55;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.35);
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   4. PROJECTS → CODE QUEST
+   CYBERPUNK PORTAL
+   ========================================================= */
+
+#projects::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -20px;
+
+  width: 300px;
+  height: 85px;
+
+  transform: translateX(-50%);
+
+  border-radius:
+    50% 50% 0 0;
+
+  border-top:
+    2px solid rgba(0, 220, 255, .65);
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(0, 220, 255, .28),
+      rgba(255, 50, 180, .08) 40%,
+      transparent 72%
+    );
+
+  box-shadow:
+    0 0 15px rgba(0, 220, 255, .35),
+    0 0 45px rgba(0, 220, 255, .14),
+    0 0 65px rgba(255, 50, 180, .08);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: projectPortalPulse 4s ease-in-out infinite;
+}
+
+#projects::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  width: 6px;
+  height: 6px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 8px rgba(0, 220, 255, 1),
+    0 0 20px rgba(0, 220, 255, .9),
+    0 0 40px rgba(255, 50, 180, .5);
+
+  pointer-events: none;
+  z-index: 9;
+
+  animation: portalCore 2s ease-in-out infinite;
+}
+
+@keyframes projectPortalPulse {
+
+  0%, 100% {
+    transform: translateX(-50%) scaleX(.7);
+    opacity: .35;
+  }
+
+  50% {
+    transform: translateX(-50%) scaleX(1.12);
+    opacity: .9;
+  }
+
+}
+
+@keyframes portalCore {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(.6);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.4);
+  }
+
+}
+
+
+/* =========================================================
+   5. CODE QUEST → EXPERIENCE
+   DIGITAL DATA STREAM
+   ========================================================= */
+
+#code-quest::after {
+  content: "01   10   11   01   10   01   11   10   01";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  transform: translateX(-50%);
+
+  width: 75%;
+  max-width: 700px;
+
+  text-align: center;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 8px;
+
+  color: rgba(50, 220, 255, .38);
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 8px rgba(50, 220, 255, .5);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: dataStreamMove 4s linear infinite;
+}
+
+@keyframes dataStreamMove {
+
+  0% {
+    opacity: .15;
+    letter-spacing: 5px;
+  }
+
+  50% {
+    opacity: .8;
+    letter-spacing: 11px;
+  }
+
+  100% {
+    opacity: .15;
+    letter-spacing: 5px;
+  }
+
+}
+
+
+/* =========================================================
+   6. EXPERIENCE → EDUCATION
+   DIGITAL TIMELINE BEAM
+   ========================================================= */
+
+#experience::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 2px;
+  height: 75px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(60, 150, 255, .85),
+      rgba(0, 220, 255, .95),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(60, 160, 255, .6),
+    0 0 30px rgba(0, 220, 255, .25);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: timelineBeam 3s ease-in-out infinite;
+}
+
+#experience::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 17px;
+
+  width: 11px;
+  height: 11px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #63b3ff;
+
+  box-shadow:
+    0 0 10px #63b3ff,
+    0 0 25px rgba(0, 220, 255, .7);
+
+  pointer-events: none;
+  z-index: 9;
+
+  animation: timelineDot 2s ease-in-out infinite;
+}
+
+@keyframes timelineBeam {
+
+  0%, 100% {
+    opacity: .35;
+    height: 45px;
+  }
+
+  50% {
+    opacity: 1;
+    height: 80px;
+  }
+
+}
+
+@keyframes timelineDot {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(.65);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.4);
+  }
+
+}
+
+
+/* =========================================================
+   7. EDUCATION → CERTIFICATIONS
+   CONSTELLATION BRIDGE
+   ========================================================= */
+
+#education::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 5px;
+
+  width: 65%;
+  max-width: 650px;
+  height: 55px;
+
+  transform: translateX(-50%);
+
+  border-top:
+    1px solid rgba(80, 140, 255, .28);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(80, 150, 255, .8) 0 2px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 50% 5%,
+      rgba(80, 220, 255, .9) 0 3px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(160, 100, 255, .8) 0 2px,
+      transparent 4px
+    );
+
+  box-shadow:
+    0 -5px 25px rgba(70, 130, 255, .10);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: constellationBridge 5s ease-in-out infinite;
+}
+
+@keyframes constellationBridge {
+
+  0%, 100% {
+    opacity: .3;
+    transform: translateX(-50%) scaleX(.8);
+  }
+
+  50% {
+    opacity: .85;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+}
+
+
+/* =========================================================
+   8. CERTIFICATIONS → RESUME
+   ENERGY SPARK LINE
+   ========================================================= */
+
+#certifications::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  width: 70%;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(160, 90, 255, .15),
+      rgba(190, 100, 255, .9),
+      rgba(80, 200, 255, .9),
+      rgba(160, 90, 255, .15),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(160, 90, 255, .55),
+    0 0 25px rgba(80, 200, 255, .18);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: certEnergyLine 3.5s ease-in-out infinite;
+}
+
+@keyframes certEnergyLine {
+
+  0%, 100% {
+    opacity: .25;
+    transform: translateX(-50%) scaleX(.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+}
+
+
+/* =========================================================
+   9. RESUME → CONTACT
+   SCANNER → ENERGY BRIDGE
+   ========================================================= */
+
+#resume::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 80%;
+  height: 65px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 220, 255, .08),
+      rgba(0, 220, 255, .8),
+      rgba(0, 220, 255, .08),
+      transparent
+    );
+
+  box-shadow:
+    0 0 15px rgba(0, 220, 255, .35);
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: resumeBridge 3s ease-in-out infinite;
+}
+
+#resume::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 28px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateX(-50%);
+
+  border:
+    1px solid rgba(0, 220, 255, .75);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 12px rgba(0, 220, 255, .75),
+    0 0 35px rgba(0, 220, 255, .3);
+
+  pointer-events: none;
+  z-index: 9;
+
+  animation: resumeCore 2.5s ease-in-out infinite;
+}
+
+@keyframes resumeBridge {
+
+  0%, 100% {
+    opacity: .25;
+    transform: translateX(-50%) scaleX(.65);
+  }
+
+  50% {
+    opacity: .85;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+}
+
+@keyframes resumeCore {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(.7);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.25);
+  }
+
+}
+
+
+/* =========================================================
+   10. CONTACT → FOOTER
+   FINAL CONNECTION
+   ========================================================= */
+
+#contact::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 100%;
+  height: 80px;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(0, 220, 255, .28),
+      transparent 60%
+    );
+
+  pointer-events: none;
+  z-index: 8;
+
+  animation: finalConnection 4s ease-in-out infinite;
+}
+
+#contact::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 16px;
+
+  width: 12px;
+  height: 12px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 10px rgba(0, 220, 255, 1),
+    0 0 30px rgba(0, 220, 255, .8),
+    0 0 60px rgba(0, 220, 255, .35);
+
+  pointer-events: none;
+  z-index: 9;
+
+  animation: finalCore 2.5s ease-in-out infinite;
+}
+
+@keyframes finalConnection {
+
+  0%, 100% {
+    opacity: .2;
+    transform: translateX(-50%) scaleX(.7);
+  }
+
+  50% {
+    opacity: .8;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+}
+
+@keyframes finalCore {
+
+  0%, 100% {
+    transform: translateX(-50%) scale(.65);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.5);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  #home::after {
+    height: 60px;
+  }
+
+  #about::after {
+    width: 90%;
+    height: 55px;
+  }
+
+  #skills::after {
+    width: 75px;
+    height: 75px;
+  }
+
+  #projects::after {
+    width: 210px;
+    height: 65px;
+  }
+
+  #code-quest::after {
+    width: 90%;
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  #experience::after {
+    height: 55px;
+  }
+
+  #education::after {
+    width: 85%;
+  }
+
+  #certifications::after {
+    width: 85%;
+  }
+
+  #resume::after {
+    width: 90%;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #home::after,
+  #about::after,
+  #skills::after,
+  #skills::before,
+  #projects::after,
+  #projects::before,
+  #code-quest::after,
+  #experience::after,
+  #experience::before,
+  #education::after,
+  #certifications::after,
+  #resume::after,
+  #resume::before,
+  #contact::after,
+  #contact::before {
+    animation: none !important;
+  }
+
+}
+/* REMOVE ABOUT BLUE + PINK AURORA BLOBS */
+
+.about-aurora,
+.aurora-1,
+.aurora-2 {
+  display: none !important;
+}
