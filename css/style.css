@@ -3646,3 +3646,625 @@ main > section[id]:not(#contact)::before {
     animation: none !important;
   }
 }
+/* =========================================================
+   SECTION WORLDS — FINAL STABILITY PATCH
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   BACKGROUND LAYERING
+   --------------------------------------------------------- */
+
+main > section[id] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Background stays behind every section element */
+main > section[id] > .section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content stays above the background */
+main > section[id] > *:not(.section-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep section headings/content readable */
+main > section[id] .section-heading,
+main > section[id] .about__grid,
+main > section[id] .skills__grid,
+main > section[id] .projects__grid,
+main > section[id] .codequest-grid,
+main > section[id] .timeline,
+main > section[id] .education,
+main > section[id] .certifications,
+main > section[id] .resume,
+main > section[id] .contact,
+main > section[id] .contact-form,
+main > section[id] .codequest-footer {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* ---------------------------------------------------------
+   HOME — NEURAL CANVAS ONLY
+   --------------------------------------------------------- */
+
+body[data-active-section="home"] #bg-canvas {
+  opacity: .82;
+}
+
+body[data-active-section]:not([data-active-section="home"]) #bg-canvas {
+  opacity: 0;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION BACKGROUND TRANSITION
+   --------------------------------------------------------- */
+
+.section-bg {
+  opacity: 0;
+  transition:
+    opacity 1.2s ease,
+    transform 1.5s ease;
+}
+
+body[data-active-section="about"] .about-bg,
+body[data-active-section="skills"] .skills-bg,
+body[data-active-section="projects"] .projects-bg,
+body[data-active-section="code-quest"] .codequest-bg,
+body[data-active-section="experience"] .experience-bg,
+body[data-active-section="education"] .education-bg,
+body[data-active-section="certifications"] .certifications-bg,
+body[data-active-section="resume"] .resume-bg,
+body[data-active-section="contact"] .contact-bg {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ABOUT — SUBTLE HUMAN / CREATIVE WORLD
+   ========================================================= */
+
+.about-bg {
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at 20% 35%,
+      rgba(51, 225, 255, .055),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 78% 65%,
+      rgba(179, 146, 240, .055),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(3, 8, 18, .96),
+      rgba(7, 11, 25, .93)
+    );
+}
+
+/* Keep butterfly genuinely small */
+.about-butterfly {
+  width: 24px;
+  height: 18px;
+  opacity: .72;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   SKILLS — AI ORBIT WORLD
+   ========================================================= */
+
+.skills-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .07),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(179, 146, 240, .035),
+      transparent 30%
+    );
+}
+
+.skills-core {
+  z-index: 1;
+}
+
+.skills-orbit {
+  z-index: 1;
+}
+
+
+/* =========================================================
+   PROJECTS — STRONGEST CYBERPUNK WORLD
+   ========================================================= */
+
+.projects-bg {
+  background:
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(0, 205, 255, .14),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(255, 70, 190, .08),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #040711 0%,
+      #070b16 50%,
+      #02040a 100%
+    );
+}
+
+/* Stronger perspective grid */
+.projects-grid-plane {
+  opacity: .9;
+  filter:
+    drop-shadow(0 0 5px rgba(51, 225, 255, .12));
+}
+
+/* Horizon should sit behind cards */
+.projects-horizon {
+  z-index: 1;
+}
+
+/* Portal behind project content */
+.projects-portal {
+  z-index: 1;
+}
+
+/* Light beams */
+.projects-light-beam {
+  z-index: 1;
+}
+
+/* Project cards always win over background */
+.projects__grid {
+  position: relative;
+  z-index: 4;
+}
+
+.projects__grid .code-card {
+  z-index: 4;
+}
+
+
+/* =========================================================
+   CODE QUEST — DIGITAL WORLD
+   ========================================================= */
+
+.codequest-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .065),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 7, 16, .96),
+      rgba(5, 10, 22, .96)
+    );
+}
+
+.code-grid,
+.code-orbit,
+.code-scanline,
+.code-particle {
+  z-index: 1;
+}
+
+.codequest-profile,
+.quest-stat,
+.codequest-footer {
+  z-index: 4;
+}
+
+
+/* =========================================================
+   EXPERIENCE — DIGITAL TIMELINE
+   ========================================================= */
+
+.experience-bg {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(76, 141, 255, .055),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4, 9, 19, .30),
+      rgba(4, 8, 17, .50)
+    );
+}
+
+.experience-grid,
+.experience-energy-line,
+.experience-particle {
+  z-index: 1;
+}
+
+
+/* =========================================================
+   EDUCATION — CONSTELLATION
+   ========================================================= */
+
+.education-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(76, 141, 255, .065),
+      transparent 42%
+    );
+}
+
+.education-orbit,
+.education-node,
+.education-connection {
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS — ENERGY FIELD
+   ========================================================= */
+
+.certifications-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(179, 146, 240, .065),
+      transparent 40%
+    );
+}
+
+.cert-energy-ring,
+.cert-spark {
+  z-index: 1;
+}
+
+
+/* =========================================================
+   RESUME — SCANNER HUD
+   ========================================================= */
+
+.resume-bg {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 255, 220, .055),
+      transparent 48%
+    );
+}
+
+.resume-scanline,
+.resume-corner,
+.resume-particle {
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CONTACT — FINAL CONNECTION
+   ========================================================= */
+
+.contact-bg {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(51, 225, 255, .085),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 10, 20, .65),
+      rgba(7, 11, 20, .96)
+    );
+}
+
+.contact-network,
+.contact-final-pulse {
+  z-index: 1;
+}
+
+.contact > *,
+.contact-form,
+.contact-info {
+  position: relative;
+  z-index: 4;
+}
+
+
+/* =========================================================
+   SECTION END — GLOWING PORTAL
+   Contact is intentionally excluded.
+   ========================================================= */
+
+main > section[id]:not(#contact)::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -16px;
+
+  width: min(460px, 65vw);
+  height: 72px;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(51, 225, 255, .62) 0%,
+      rgba(51, 225, 255, .25) 24%,
+      rgba(76, 141, 255, .10) 42%,
+      transparent 72%
+    );
+
+  filter: blur(5px);
+
+  opacity: .72;
+
+  animation:
+    sectionPortalPulse 4s ease-in-out infinite;
+}
+
+
+/* Energy arc */
+
+main > section[id]:not(#contact)::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -25px;
+
+  width: min(280px, 42vw);
+  height: 62px;
+
+  transform: translateX(-50%);
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  border:
+    1px solid rgba(51, 225, 255, .32);
+
+  border-bottom: 0;
+
+  border-radius:
+    50% 50% 0 0;
+
+  box-shadow:
+    0 0 16px rgba(51, 225, 255, .24),
+    0 0 35px rgba(51, 225, 255, .08),
+    inset 0 10px 22px rgba(51, 225, 255, .08);
+
+  opacity: .7;
+
+  animation:
+    sectionPortalArc 4s ease-in-out infinite;
+}
+
+@keyframes sectionPortalPulse {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      scaleX(.72)
+      scaleY(.7);
+
+    opacity: .3;
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      scaleX(1.08)
+      scaleY(1.15);
+
+    opacity: .9;
+  }
+
+}
+
+@keyframes sectionPortalArc {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      scaleX(.72);
+
+    opacity: .22;
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      scaleX(1.08);
+
+    opacity: .82;
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER — FINAL TERMINAL
+   ========================================================= */
+
+.footer {
+  position: relative;
+}
+
+.footer-terminal {
+  position: relative;
+  z-index: 5;
+
+  min-height: 24px;
+
+  text-shadow:
+    0 0 8px rgba(126, 231, 135, .25);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .section-bg {
+    transition-duration: .8s;
+  }
+
+  /* Butterfly */
+  .about-butterfly {
+    width: 21px;
+    height: 16px;
+    left: 70%;
+    top: 24%;
+  }
+
+  /* Projects grid */
+  .projects-grid-plane {
+    left: -80%;
+    width: 260%;
+    bottom: -30%;
+  }
+
+  .projects-horizon {
+    top: 44%;
+  }
+
+  .projects-portal {
+    width: 105px;
+    height: 105px;
+  }
+
+  /* Portal transition */
+  main > section[id]:not(#contact)::after {
+    width: 280px;
+    height: 58px;
+    bottom: -14px;
+  }
+
+  main > section[id]:not(#contact)::before {
+    width: 185px;
+    height: 48px;
+    bottom: -20px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .about-butterfly {
+    width: 18px;
+    height: 14px;
+  }
+
+  .projects-grid-plane {
+    opacity: .65;
+  }
+
+  .projects-light-beam {
+    opacity: .45;
+  }
+
+  .projects-portal {
+    opacity: .45;
+  }
+
+  main > section[id]:not(#contact)::after {
+    width: 230px;
+  }
+
+  main > section[id]:not(#contact)::before {
+    width: 150px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .section-bg,
+  .about-aurora,
+  .about-light,
+  .about-particle,
+  .about-butterfly,
+  .butterfly-wing,
+  .skills-core,
+  .skills-orbit,
+  .skills-orbit-node,
+  .skills-particle,
+  .projects-grid-plane,
+  .projects-horizon,
+  .projects-light-beam,
+  .project-particle,
+  .projects-portal,
+  .projects-portal::before,
+  .projects-portal::after,
+  .projects-portal span,
+  .code-grid,
+  .code-scanline,
+  .code-orbit,
+  .code-particle,
+  .experience-energy-line,
+  .energy-traveller,
+  .experience-particle,
+  .education-orbit,
+  .education-node,
+  .cert-energy-ring,
+  .cert-spark,
+  .resume-scanline,
+  .resume-particle,
+  .contact-node,
+  .contact-final-pulse,
+  main > section[id]:not(#contact)::before,
+  main > section[id]:not(#contact)::after,
+  .footer-terminal::before {
+    animation: none !important;
+  }
+
+  .section-bg {
+    transition: none;
+  }
+
+}
